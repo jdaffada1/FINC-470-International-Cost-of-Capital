@@ -1,0 +1,95 @@
+industry,number_of_firms,unlevered_beta,unlevered_beta_cash_corrected,industry_debt_equity_ratio,source_updated,source,source_url
+Advertising,52,0.930085673859911,1.0080098903421257,0.4020006635676013,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Aerospace/Defense,79,0.846668742124111,0.8693772823914925,0.1556259774178424,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Air Transport,23,0.7040501862693873,0.7579038179118688,0.91170567766528,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Apparel,35,0.7579820882045375,0.794563498700363,0.31292274379874546,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Auto & Truck,33,1.2690329072913427,1.3081652064358895,0.19695879853744616,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Auto Parts,35,1.0217137832780625,1.1283051051783621,0.4146400386187307,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Bank (Money Center),15,0.3410587595479105,0.4438913800649,1.6418966357638234,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Banks (Regional),568,0.2865156418030888,0.3744392448485997,0.5210229274429405,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Beverage (Alcoholic),14,0.6131715419678557,0.6280466376925842,0.4333840741223201,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Beverage (Soft),27,0.5556711918551647,0.5754648330410659,0.20587118525522147,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Broadcasting,24,0.28636169661672445,0.315292569835984,0.8585429035988935,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Brokerage & Investment Banking,32,0.5808487698048416,0.6794030848916329,1.3557362534403625,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Building Materials,41,0.9301623477287291,0.9605275604881124,0.25998303924525584,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Business & Consumer Services,155,0.7735875598670026,0.8060249314889546,0.19716100170472986,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Cable TV,9,0.3523921209643926,0.36287690746362616,1.469394514839746,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Chemical (Basic),29,0.5800328658623819,0.6367830669050106,0.9935397565078776,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Chemical (Diversified),4,0.36655193179254153,0.40614323179001943,1.7610998877970157,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Chemical (Specialty),59,0.7922271711710575,0.8244706586041288,0.29882962373710314,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Coal & Related Energy,16,1.0165349872490315,1.1824381999346527,0.07142984737214478,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Computer Services,64,0.9155102559970569,0.9617009989891427,0.25100122596094754,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Computers/Peripherals,36,1.3050624188250832,1.3245870396777912,0.04624738158842277,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Construction Supplies,40,1.0160678372067562,1.0468296973758173,0.17621949339337503,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Diversified,20,0.7889302024061987,0.8430962646682882,0.15552702199112797,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Drugs (Biotechnology),496,1.034128692045902,1.079453865168337,0.13039813617119383,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Drugs (Pharmaceutical),228,0.8862112018778732,0.915135973481584,0.14537075884184583,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Education,32,0.6601955817730791,0.719599829329938,0.24378635749927063,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Electrical Equipment,112,1.1477945494288007,1.1898070318069807,0.12003228885644493,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Electronics (Consumer & Office),8,0.8298525821858579,0.9273766123201671,0.058043138538441966,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Electronics (General),114,0.8973653021365886,0.9374545595854545,0.1101176648064408,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Engineering/Construction,48,1.094912241925567,1.137436783693752,0.1401147535589371,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Entertainment,92,0.7371838269272858,0.7628468307830948,0.15913861576824234,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Environmental & Waste Services,53,0.814469065497658,0.8247690956344971,0.2144746613305266,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Farming/Agriculture,35,0.8130198178522071,0.8457836746022086,0.5184849801548149,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Financial Svcs. (Non-bank & Insurance),176,0.3188823716863237,0.32770838684759396,2.721299675975284,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Food Processing,78,0.45741810112318915,0.46942377677075875,0.43733857874231813,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Food Wholesalers,13,0.6408819228030607,0.6477598141678518,0.4696855126722596,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Furn/Home Furnishings,27,0.6247880689027374,0.6521303704400933,0.42333374568083953,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Green & Renewable Energy,15,0.46330103394106914,0.4722841676536161,1.1310960720897125,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Healthcare Products,204,0.829063339182968,0.8569477958661521,0.12785158403919683,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Healthcare Support Services,104,0.6889158973179456,0.7448750574739688,0.354253188687874,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Heathcare Information and Technology,115,0.9913008450033202,1.016325032628335,0.1574134360720486,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Homebuilding,30,0.7849604569802948,0.8532230798743929,0.21344150553857202,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Hospitals/Healthcare Facilities,31,0.5517295035260499,0.5648588718287879,0.5992038400269105,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Hotel/Gaming,63,0.8322513645728964,0.8756884427797555,0.39750202770666376,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Household Products,110,0.7178159032286779,0.7410769287097494,0.18147628375519134,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Information Services,15,0.7371769598623608,0.7563563575971642,0.3316984905170498,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Insurance (General),21,0.5636395230036526,0.5780724262046252,0.2562761358769038,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Insurance (Life),20,0.4271563388858468,0.5317480065275768,0.6783987776748907,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Insurance (Prop/Cas.),57,0.43565645519640217,0.4570234949231456,0.1482928711512957,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Investments & Asset Management,283,0.5297158729912839,0.588064033338367,0.3268818496772947,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Machinery,105,0.8679764970807725,0.8940302510086939,0.14692301552763604,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Metals & Mining,73,0.963642813760502,1.0104492960544031,0.10984521282049067,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Office Equipment & Services,14,0.980603950937201,1.0381901897861687,0.4810247634925184,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Oil/Gas (Integrated),4,0.2712192455295165,0.2780040123588666,0.13845002805508974,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Oil/Gas (Production and Exploration),142,0.562759894026207,0.5785405692885324,0.37587625587778695,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Oil/Gas Distribution,23,0.4650757918129057,0.46925629740907565,0.5852713715207659,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Oilfield Svcs/Equip.,97,0.7430388962534321,0.7870575641420728,0.37360623860545034,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Packaging & Container,19,0.7230693503118022,0.7489917958635104,0.55109591650755,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Paper/Forest Products,6,0.7215533176034462,0.7696751455408247,0.43688176160689357,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Power,46,0.31002381536217716,0.31457840775745605,0.7414865026995126,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Precious Metals,56,0.7932430128835662,0.8308962073401722,0.07281104300881082,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Publishing & Newspapers,19,0.47730712965508676,0.511884073790114,0.2393987480231246,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+R.E.I.T.,190,0.39290436962561487,0.40054184967311207,0.844629934379348,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Real Estate (Development),14,0.4782878873556669,0.564103618717777,1.0182937484544488,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Real Estate (General/Diversified),12,0.57785949402086,0.6269536358598106,0.5356019016772732,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Real Estate (Operations & Services),54,0.8148915126864962,0.8575864326620388,0.24642281273824773,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Recreation,49,0.6950913817523879,0.7364987182992697,0.6299053181462322,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Reinsurance,1,0.43840910722706555,0.5777016987693434,0.4346722815513458,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Restaurant/Dining,64,0.767419655502052,0.7830073823550779,0.2721981524363927,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Retail (Automotive),34,0.6984325625385885,0.713248607812822,0.45355394519631387,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Retail (Building Supply),14,1.3070143643127536,1.3176570660974836,0.2328921812948963,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Retail (Distributors),62,0.7826829040437357,0.8016320288830955,0.2823636659199003,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Retail (General),23,0.7599637023048608,0.7809280399984467,0.07943684178442863,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Retail (Grocery and Food),15,0.804751465127235,0.8483611176919518,0.5195017227110472,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Retail (REITs),26,0.4361730155949174,0.442715972660596,0.5641981493610073,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Retail (Special Lines),94,0.9487830646597303,1.0018775790318082,0.19760978860946327,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Rubber& Tires,3,0.14353369356004206,0.15435790814828812,3.5847235984078427,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Semiconductor,66,1.48925822268736,1.5046492754744247,0.02591104732744511,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Semiconductor Equip,31,1.3480733569303134,1.3916911563373942,0.04861265405817292,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Shipbuilding & Marine,8,0.644012905556584,0.6607667999490512,0.22550196647883228,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Shoe,11,0.9336746513867349,1.0001868235248257,0.11944728476926639,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Software (Entertainment),77,1.0127806880948524,1.0206917427212765,0.02044609811708157,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Software (Internet),29,1.5460643073174678,1.5905250877083126,0.12298911343132386,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Software (System & Application),309,1.225391886520662,1.2481994174665423,0.05577131922321719,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Steel,19,0.9035142702396447,0.9449429751018495,0.23512925389922143,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Telecom (Wireless),12,0.3872590553991877,0.39242083985345116,0.519466977505286,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Telecom. Equipment,57,0.8634913488563035,0.8872512120358865,0.09222748494322085,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Telecom. Services,39,0.3654342533759909,0.38150035836387236,0.9606320738181406,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Tobacco,10,0.6775903166712723,0.6902977739311797,0.22968502777837752,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Transportation,19,0.67531101084817,0.7115266417564335,0.3644955938376248,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Transportation (Railroads),4,0.8069481235657714,0.8137222539977831,0.2779156347027222,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Trucking,26,0.8504180575613394,0.8688507380232171,0.25231648451786204,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Utility (General),14,0.14861284002770483,0.14911053505258812,0.8148428973368238,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls
+Utility (Water),14,0.281177328534438,0.28247289345133525,0.6235944507219604,2026-01-05,Aswath Damodaran,https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls

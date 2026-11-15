@@ -1,0 +1,17 @@
+country,currency,yield_pct,tax_pct,yield_as_of,tax_as_of,yield_source,tax_source
+United States,USD,4.9,25.5,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Colombia,COP,12.8,,2026-11-06,2026,FINC 470 lecture page 23,
+Brazil,BRL,15.2,,2026-11-06,2026,FINC 470 lecture page 23,
+Mexico,MXN,9.1,30.0,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+India,INR,7.2,25.2,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Poland,PLN,6.2,19.0,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+United Kingdom,GBP,5.2,25.0,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Australia,AUD,5.0,30.0,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+France,EUR,4.8,36.1,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Slovakia,EUR,4.2,24.0,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Portugal,EUR,3.7,29.5,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Canada,CAD,3.7,26.0,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Germany,EUR,3.3,30.1,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Japan,JPY,2.6,29.7,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+China,CNY,1.6,25.0,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
+Switzerland,CHF,0.4,19.5,2026-11-06,2026,FINC 470 lecture page 23,OECD 2026 lecture page 11
