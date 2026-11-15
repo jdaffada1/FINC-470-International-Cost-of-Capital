@@ -195,6 +195,42 @@ betas, market, spreads = snapshot_data()
 if 'refreshed' not in st.session_state: st.session_state.refreshed={}
 if 'refresh_status' not in st.session_state: st.session_state.refresh_status={}
 
+# Load the verified OECD export committed to GitHub at startup. The file is
+# deliberately not modified by the app; manual imports can override it.
+OECD_LOCAL_CSV = BASE / 'data' / 'oecd_tax_rates_2026_streamlit (1).csv'
+
+@st.cache_data(show_spinner=False)
+def load_repository_oecd_taxes():
+    if not OECD_LOCAL_CSV.is_file():
+        return {}, f'OECD repository CSV missing: {OECD_LOCAL_CSV.name}'
+    try:
+        df = pd.read_csv(OECD_LOCAL_CSV)
+        if not {'country', 'tax_pct'}.issubset(df.columns):
+            raise ValueError('Expected country,tax_pct columns')
+        df['country'] = df['country'].astype(str).str.strip()
+        df['tax_pct'] = pd.to_numeric(df['tax_pct'], errors='raise')
+        if df['country'].duplicated().any() or not df['tax_pct'].between(0, 70).all():
+            raise ValueError('Duplicate countries or rates outside 0–70%')
+        supported = set(snapshot_data()[1]['country'].astype(str))
+        rates = {r.country: float(r.tax_pct) for r in df.itertuples(index=False)
+                 if r.country in supported}
+        if not rates:
+            raise ValueError('No country names match the app market data')
+        return rates, None
+    except Exception as exc:
+        return {}, f'OECD repository CSV invalid: {exc}'
+
+if 'taxes' not in st.session_state.refreshed:
+    local_taxes, local_error = load_repository_oecd_taxes()
+    if local_taxes:
+        st.session_state.refreshed['taxes'] = local_taxes
+        st.session_state.refresh_status['taxes'] = (
+            f'Official OECD 2026 rates · repository CSV {OECD_LOCAL_CSV.name} '
+            f'· {len(local_taxes)} supported countries (2026 observations)'
+        )
+    elif local_error:
+        st.session_state.refresh_status['oecd_local'] = local_error
+
 st.title('🌐 Global Cost of Capital')
 st.caption('FINC 470 · USD vs. local-currency financing · Professor Rebelo lecture methodology')
 with st.sidebar:
@@ -212,6 +248,9 @@ with st.sidebar:
     if st.button('🔄 Refresh all public sources',use_container_width=True):
         with st.spinner('Checking Damodaran, Trading Economics and OECD…'):
             for key,fn in [('betas',refresh_betas),('spread',refresh_spread),('yields',refresh_bond_yields),('taxes',refresh_oecd_taxes)]:
+                if key == 'taxes' and ('taxes' in st.session_state.refreshed):
+                    # A validated OECD CSV is more reliable than the blocked OECD narrative page.
+                    continue
                 if 'supplied by user' in st.session_state.refresh_status.get(key, ''):
                     continue
                 try:
@@ -377,7 +416,7 @@ source_rows=[
 for name,url,source in source_rows:
     st.markdown(f'**{name}:** [{url}]({url}) — {source}')
 for name,msg in status.items():
-    if msg.startswith('Update unavailable'):st.warning(f'{name}: {msg}')
+    if msg.startswith('Update unavailable') or name == 'oecd_local':st.warning(f'{name}: {msg}')
 if any([beta_override,us_override,fx_override,spread_override,tax_override,foreign_spread_override]):
     st.info('Manual overrides are active. Review input values before using these results.')
 
