@@ -7,3 +7,4 @@ lxml
 openpyxl
 xlrd
 pytest
+html5lib
