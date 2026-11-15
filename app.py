@@ -83,42 +83,90 @@ def _clean_country(s):
     return s
 
 
-def refresh_bond_yields():
-    """Parse public TE HTML when available; never claim a refresh from unverified values."""
-    content = download(TE_URL)
-    soup = BeautifulSoup(content, 'html.parser')
-    countries = set(snapshot_data()[1]['country'].astype(str))
-    aliases = {'United States': {'united states', 'united states 10y', 'usa', 'us'},
-               'United Kingdom': {'united kingdom', 'uk'},
-               'South Korea': {'south korea', 'korea, south'}}
-    out = {}
-    for table in soup.select('table'):
-        heads = [th.get_text(' ', strip=True).lower() for th in table.select('thead th')]
-        if not heads:
-            first = table.find('tr')
-            heads = [c.get_text(' ', strip=True).lower() for c in first.find_all(['th','td'])] if first else []
-        country_i = next((i for i,h in enumerate(heads) if any(k in h for k in ('country','name','bond'))), None)
-        yield_i = next((i for i,h in enumerate(heads) if any(k in h for k in ('yield','last'))), None)
-        if country_i is None or yield_i is None:
+def _valid_yield(value):
+    try:
+        number = float(str(value).replace('%', '').replace(',', '').strip())
+        return number if -5.0 < number < 100.0 else None
+    except (ValueError, TypeError):
+        return None
+
+
+def _country_slug(country):
+    # Trading Economics uses this route for country government bond yield pages.
+    return country.lower().replace(' ', '-')
+
+
+def _read_te_bond_page(country):
+    """Try a public country 10Y page, verifying that the 10Y quote is identifiable."""
+    url = f'https://tradingeconomics.com/{_country_slug(country)}/government-bond-yield'
+    soup = BeautifulSoup(download(url), 'html.parser')
+    # Structured metadata, when provided, is preferable to generic numeric matches.
+    for tag in soup.find_all('meta'):
+        if tag.get('property') in ('og:description', 'description') or tag.get('name') == 'description':
+            content = tag.get('content', '')
+            if '10-year' in content.lower() or '10 year' in content.lower():
+                match = re.search(r'(?:was|at|to|yield(?:ed)?|is)\s+(?:at\s+)?(-?\d+(?:\.\d+)?)\s*%', content, re.I)
+                if match:
+                    value = _valid_yield(match.group(1))
+                    if value is not None:
+                        return value
+    # A labeled bond table row is also reliable; reject 2Y, 5Y, TIPS, etc.
+    for tr in soup.find_all('tr'):
+        cells = tr.find_all(['td', 'th'])
+        if len(cells) < 2:
             continue
-        for tr in table.select('tr'):
-            cells = tr.find_all(['th','td'])
-            if len(cells) <= max(country_i,yield_i):
+        name = cells[0].get_text(' ', strip=True)
+        if re.fullmatch(r'(?:US|UK|[A-Za-z .-]+)\s+10Y', name, re.I):
+            value = _valid_yield(cells[1].get_text(' ', strip=True))
+            if value is not None:
+                return value
+    raise ValueError(f'No independently identifiable 10Y yield on {country} public page')
+
+
+def refresh_bond_yields():
+    """Prefer authenticated TE 10Y API; try public country pages as a fallback.
+
+    No API key is required to use the app. An optional Trading Economics key
+    can be supplied through Streamlit secrets as TE_API_KEY (never commit it).
+    """
+    countries = list(snapshot_data()[1]['country'].astype(str))
+    try:
+        key = st.secrets.get('TE_API_KEY', '')
+    except Exception:
+        key = ''
+    if key:
+        response = requests.get('https://api.tradingeconomics.com/markets/bond',
+                                params={'c': key, 'type': '10Y', 'f': 'json'},
+                                headers=HEADERS, timeout=20)
+        response.raise_for_status()
+        records = response.json()
+        if not isinstance(records, list):
+            raise ValueError('Trading Economics API did not return bond records')
+        result = {}
+        for record in records:
+            if not isinstance(record, dict):
                 continue
-            label = _clean_country(cells[country_i].get_text(' ', strip=True)).lower()
-            label = re.sub(r'\s+10(?:-?year|y)\b.*$', '', label).strip()
-            for country in countries:
-                if label not in aliases.get(country, {country.lower()}):
-                    continue
-                raw = cells[yield_i].get_text(' ', strip=True).replace('%','').replace(',','')
-                m = re.search(r'[-+]?\d+(?:\.\d+)?', raw)
-                if m:
-                    value = float(m.group())
-                    if -5 < value < 100:
-                        out[country] = value
-    if 'United States' not in out or len(out) < 3:
-        raise ValueError('Trading Economics did not expose a verifiable 10Y yield table. Use dated snapshot or manual override.')
-    return out
+            name = str(record.get('Country', '')).strip()
+            label = str(record.get('Name', ''))
+            if name in countries and re.search(r'\b10Y\b|10.year', label, re.I):
+                value = _valid_yield(record.get('Last'))
+                if value is not None:
+                    result[name] = value
+        if 'United States' in result and len(result) >= 3:
+            return result
+        raise ValueError('Trading Economics API returned insufficient valid 10Y quotes')
+
+    # Public pages may deny automated access. Refresh individual verified quotes;
+    # never silently substitute a different maturity or a forecast.
+    result = {}
+    for country in countries:
+        try:
+            result[country] = _read_te_bond_page(country)
+        except (requests.RequestException, ValueError):
+            continue
+    if 'United States' not in result or len(result) < 3:
+        raise ValueError('Trading Economics public pages blocked or did not expose verifiable 10Y quotes; import a verified CSV or use dated snapshots.')
+    return result
 
 
 def refresh_oecd_taxes():
@@ -164,6 +212,8 @@ with st.sidebar:
     if st.button('🔄 Refresh all public sources',use_container_width=True):
         with st.spinner('Checking Damodaran, Trading Economics and OECD…'):
             for key,fn in [('betas',refresh_betas),('spread',refresh_spread),('yields',refresh_bond_yields),('taxes',refresh_oecd_taxes)]:
+                if 'supplied by user' in st.session_state.refresh_status.get(key, ''):
+                    continue
                 try:
                     val=fn();st.session_state.refreshed[key]=val
                     st.session_state.refresh_status[key]=f'Updated {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}'
@@ -171,6 +221,31 @@ with st.sidebar:
                     st.session_state.refresh_status[key]=f'Update unavailable: {str(exc)[:110]}'
         st.rerun()
     st.caption('Refresh is best-effort: source websites can block scraping or change their tables. Dated snapshots remain available; failures are never labeled live.')
+    with st.expander('Import verified Trading Economics 10Y yields (CSV fallback)'):
+        st.caption('Download or transcribe observed 10-year government yields from Trading Economics. CSV columns: country,yield_pct. Use actual yields in percent, not forecasts, and record the observation date. Import is session-scoped.')
+        uploaded_yields = st.file_uploader('Trading Economics 10Y yield CSV', type=['csv'], key='te_yields_upload')
+        yield_date = st.text_input('10Y yield observation date', placeholder='YYYY-MM-DD', key='te_yields_date')
+        if st.button('Apply verified 10Y yields', disabled=uploaded_yields is None):
+            try:
+                datetime.strptime(yield_date.strip(), '%Y-%m-%d')
+                table = pd.read_csv(uploaded_yields)
+                if not {'country', 'yield_pct'}.issubset(table.columns):
+                    raise ValueError('CSV needs columns country,yield_pct')
+                allowed = set(market['country'].astype(str))
+                values = {}
+                for _, item in table.iterrows():
+                    name = str(item['country']).strip()
+                    value = _valid_yield(item['yield_pct'])
+                    if name in allowed and value is not None:
+                        values[name] = value
+                if 'United States' not in values or len(values) < 2:
+                    raise ValueError('Include a valid United States 10Y yield and at least one other supported country.')
+                st.session_state.refreshed['yields'] = values
+                st.session_state.refresh_status['yields'] = (f'Verified Trading Economics CSV supplied by user · observation {yield_date.strip()} · '
+                    f'imported {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")} · {len(values)} countries')
+                st.rerun()
+            except Exception as exc:
+                st.error(f'Could not import 10Y yields: {exc}')
     with st.expander('Import verified OECD tax rates (optional)'):
         st.caption('If OECD blocks automated access, download its official country-level combined statutory tax rates as CSV. Columns: country, tax_pct. Rates must be percentages (e.g. 25.5), not decimals. Include the official source date below.')
         uploaded_taxes = st.file_uploader('OECD tax-rate CSV', type=['csv'], key='oecd_upload')
